@@ -4,7 +4,7 @@ include_once("../student.php"); // Include the Student class file
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-
+    
     // Fetch student data by ID from the database
     $db = new Database();
     $student = new Student($db);
@@ -36,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Call the edit method to update the student data
     if ($student->update($id, $data)) {
         echo "Record updated successfully.";
+        header("Location: students.view.php");
     } else {
         echo "Failed to update the record.";
     }
@@ -56,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="content">
     <h2>Edit Student Information</h2>
-    <form action="" method="post">
+    <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
         <input type="hidden" name="id" value="<?php echo $studentData['id']; ?>">
         
         <label for="student_number">Student Number:</label>

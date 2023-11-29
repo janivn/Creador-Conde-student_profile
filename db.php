@@ -20,6 +20,10 @@ class Database {
     public function getConnection() {
         return $this->conn;
     }
+   
+   public function prepare($sql) {
+        return $this->conn->prepare($sql);
+   }
 }
 
 

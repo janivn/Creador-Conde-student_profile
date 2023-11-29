@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     if ($student->delete($id)) {
         echo "Record deleted successfully.";
     } else {
-        echo "Failed to delete the record.";
+        echo "Faileds to delete the record.";
     }
 }
 ?>

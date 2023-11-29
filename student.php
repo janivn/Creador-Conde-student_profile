@@ -22,6 +22,7 @@ class Student {
             $stmt->bindParam(':gender', $data['gender']);
             $stmt->bindParam(':birthday', $data['birthday']);
 
+
             // Execute the INSERT query
             $stmt->execute();
 
@@ -38,6 +39,8 @@ class Student {
             throw $e; // Re-throw the exception for higher-level handling
         }
     }
+
+    
 
     public function read($id) {
         try {
@@ -178,27 +181,27 @@ class Student {
 }
 
 
-$student = new Student(new Database());
+// $student = new Student(new Database());
 
-// Test the create method
-$student_id = $student->testCreateStudent();
+// // Test the create method
+// $student_id = $student->testCreateStudent();
 
-// Test the read method with the created student ID
-$student->testReadStudent($student_id);
+// // Test the read method with the created student ID
+// $student->testReadStudent($student_id);
 
-// Test the update method with the created student ID and updated data
-$update_data = [
-    'id' => $student_id,
-    'student_number' => 'S67890',
-    'first_name' => 'Alice',
-    'middle_name' => 'Jane',
-    'last_name' => 'Doe',
-    'gender' => '0',
-    'birthday' => '1995-05-20',
-];
-$student->testUpdateStudent($student_id, $update_data);
+// // Test the update method with the created student ID and updated data
+// $update_data = [
+//     'id' => $student_id,
+//     'student_number' => 'S67890',
+//     'first_name' => 'Alice',
+//     'middle_name' => 'Jane',
+//     'last_name' => 'Doe',
+//     'gender' => '0',
+//     'birthday' => '1995-05-20',
+// ];
+// $student->testUpdateStudent($student_id, $update_data);
 
-// Test the delete method with the created student ID
-$student->testDeleteStudent($student_id);
+// // Test the delete method with the created student ID
+// $student->testDeleteStudent($student_id);
 
 ?>
